@@ -10,7 +10,7 @@ class ImageAdmin(admin.ModelAdmin):
     )
 
     search_fields = (
-        'location', 'caption',
+        'location', 'caption', #'creator'
     )
 
     list_filter = (
