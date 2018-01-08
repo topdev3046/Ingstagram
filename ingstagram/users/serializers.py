@@ -13,7 +13,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
             'username', 'name', 'bio', 'website', 'post_count', 'followers_count', 'following_count', 'images'
         )
 
-class ExploreUserSerializer(serializers.ModelSerializer):
+class ListUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.User
