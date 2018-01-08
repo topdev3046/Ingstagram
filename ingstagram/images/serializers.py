@@ -3,6 +3,15 @@ from . import models
 from ingstagram.users import models as user_models
 
 
+class UserProfileImageSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.Image
+        fields = (
+            'id', 'file', 'comment_count', 'like_count'
+        )
+
+
 class FeedUserSerializer(serializers.ModelSerializer):
 
     class Meta:
