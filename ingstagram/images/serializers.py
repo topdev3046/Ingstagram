@@ -53,12 +53,12 @@ class LikeSerializer(serializers.ModelSerializer):
 class ImageSerializer(serializers.ModelSerializer):
 
     comments = CommentSerializer(many=True)
-    # creator = FeedUserSerializer()
+    creator = FeedUserSerializer()
 
     class Meta:
         model = models.Image
         fields = (
-            'id', 'file', 'location', 'caption', 'comments', 'like_count', 'tags', #'creator'
+            'id', 'file', 'location', 'caption', 'comments', 'like_count', 'creator'
         )
 
 
