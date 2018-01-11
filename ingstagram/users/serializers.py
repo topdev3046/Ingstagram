@@ -13,10 +13,11 @@ class UserProfileSerializer(serializers.ModelSerializer):
             'username', 'name', 'bio', 'website', 'post_count', 'followers_count', 'following_count', 'images'
         )
 
+
 class ListUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.User
         fields = (
-            'profile_image', 'username', 'name'
+            'id', 'profile_image', 'username', 'name'
         )

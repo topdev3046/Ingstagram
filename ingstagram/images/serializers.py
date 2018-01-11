@@ -3,6 +3,15 @@ from . import models
 from ingstagram.users import models as user_models
 
 
+class SmallImageSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.Image
+        fields = (
+            'file',
+        )
+
+
 class UserProfileImageSerializer(serializers.ModelSerializer):
 
     class Meta:

@@ -18,6 +18,7 @@ urlpatterns = [
 
     # Your stuff: custom urls includes go here
     url(r'^images/', include('ingstagram.images.urls', namespace='images')),
+    url(r'^notifications/', include('ingstagram.notifications.urls', namespace='notifications')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
