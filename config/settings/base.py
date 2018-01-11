@@ -60,6 +60,7 @@ LOCAL_APPS = [
     'ingstagram.users.apps.UsersConfig',
     # Your stuff: custom apps go here
     'ingstagram.images.apps.ImagesConfig',
+    'ingstagram.notifications.apps.NotificationsConfig'
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
