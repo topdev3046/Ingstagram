@@ -51,7 +51,8 @@ THIRD_PARTY_APPS = [
     'allauth.socialaccount',  # registration
     # Custom for Ingstagram
     'rest_framework', # RESTful API
-    'taggit' # Tags for photos
+    'taggit', # Tags for photos
+    'taggit_serializer', # Django Taggit Rest Serializer
 ]
 
 # Apps specific for this project go here.
