@@ -2,9 +2,9 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.views.generic import TemplateView
+# from django.views.generic import TemplateView
 from django.views import defaults as default_views
-from rest_framework_jwt.views import obtain_jwt_token
+# from rest_framework_jwt.views import obtain_jwt_token
 
 
 urlpatterns = [
@@ -21,7 +21,9 @@ urlpatterns = [
     # Your stuff: custom urls includes go here
     url(r'^images/', include('ingstagram.images.urls', namespace='images')),
     url(r'^notifications/', include('ingstagram.notifications.urls', namespace='notifications')),
-    url(r'^api-token-auth/', obtain_jwt_token),
+    # url(r'^api-token-auth/', obtain_jwt_token),     # djangorestframework-jwt
+    url(r'^rest-auth/', include('rest_auth.urls')),     # django-rest-auth
+    url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),   # django-rest-auth - Registration
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -50,9 +50,12 @@ THIRD_PARTY_APPS = [
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
     # Custom for Ingstagram
-    'rest_framework', # RESTful API
-    'taggit', # Tags for photos
-    'taggit_serializer', # Django Taggit Rest Serializer
+    'rest_framework',   # djangorestframework
+    'rest_framework.authtoken', # django-rest-auth
+    'taggit',   # django-taggit
+    'taggit_serializer',    # django-taggit-serializer
+    'rest_auth',    # django-rest-auth
+    'rest_auth.registration',   # django-rest-auth - Registration
 ]
 
 # Apps specific for this project go here.
@@ -257,8 +260,8 @@ AUTHENTICATION_BACKENDS = [
 
 # Some really nice defaults
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 ACCOUNT_ALLOW_REGISTRATION = env.bool('DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
 ACCOUNT_ADAPTER = 'ingstagram.users.adapters.AccountAdapter'
@@ -267,8 +270,8 @@ SOCIALACCOUNT_ADAPTER = 'ingstagram.users.adapters.SocialAccountAdapter'
 # Custom user app defaults
 # Select the correct user model
 AUTH_USER_MODEL = 'users.User'
-LOGIN_REDIRECT_URL = 'users:redirect'
-LOGIN_URL = 'account_login'
+# LOGIN_REDIRECT_URL = 'users:redirect'
+# LOGIN_URL = 'account_login'
 
 # SLUGLIFIER
 AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
@@ -279,15 +282,23 @@ ADMIN_URL = r'^admin/'
 
 # Your common stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
+# django-taggit
 TAGGIT_CASE_INSENSITIVE = True
 
+# djangorestframework-jwt
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.BasicAuthentication',
     ),
 }
+
+# django-rest-auth - JWT Support
+REST_USE_JWT = True
+
+# django-rest-auth - Logout Option
+ACCOUNT_LOGOUT_ON_GET = True
