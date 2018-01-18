@@ -50,6 +50,7 @@ THIRD_PARTY_APPS = [
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
     # Custom for Ingstagram
+    'allauth.socialaccount.providers.facebook',  # django-rest-auth - Facebook Registration
     'rest_framework',   # djangorestframework
     'rest_framework.authtoken', # django-rest-auth
     'taggit',   # django-taggit
@@ -302,3 +303,6 @@ REST_USE_JWT = True
 
 # django-rest-auth - Logout Option
 ACCOUNT_LOGOUT_ON_GET = True
+
+# django-rest-auth - Facebook Login
+SOCIALACCOUNT_QUERY_EMAIL = True
