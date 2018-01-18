@@ -5,6 +5,7 @@ from django.contrib import admin
 # from django.views.generic import TemplateView
 from django.views import defaults as default_views
 # from rest_framework_jwt.views import obtain_jwt_token
+from ingstagram import views
 
 
 urlpatterns = [
@@ -24,7 +25,7 @@ urlpatterns = [
     # url(r'^api-token-auth/', obtain_jwt_token),     # djangorestframework-jwt
     url(r'^rest-auth/', include('rest_auth.urls')),     # django-rest-auth
     url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),   # django-rest-auth - Registration
-
+    url(r'^', views.ReactAppView.as_view()) # catch all URL
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
